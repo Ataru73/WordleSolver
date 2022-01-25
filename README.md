@@ -6,7 +6,7 @@ This little program helps solve Wordle puzzles.
 The list I'm currently using can be downloaded here: 
 https://github.com/IlyaSemenov/wikipedia-word-frequency/blob/master/results/enwiki-20190320-words-frequency.txt
 
-* 'hints' is a text file with the hints wordle gives you. The format is explained in a later section.
+* 'hints' is a text file with the hints Wordle gives you. The format is explained in a later section.
 * 'sort' if present sorts the list for charachter frequency.
 ## Hints file format
 This is am example hints.txt file:
