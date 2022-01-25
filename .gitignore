@@ -8,3 +8,4 @@ Wordle.sln
 WordList.txt
 bin/
 obj/
+Properties/
