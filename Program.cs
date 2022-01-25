@@ -179,7 +179,6 @@ namespace Wordle
                 }
             }
 
-            int index = 0;
             var start = DateTime.Now.Ticks;
 
             List<string> possibleWords = new List<string>();
@@ -188,7 +187,6 @@ namespace Wordle
             {
                 if (isPossible(w)) {
                     possibleWords.Add(w);
-                    index++;
                     if (possibleWords.Count == 11) break;
                 }
             }
