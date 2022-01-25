@@ -22,4 +22,7 @@ The numbers meaning is:
 * 2: green letter (present in that position)
 ## Usage
 For every word you try in Wordle just add the word and the hints to the hints file. The program will output the most likely word to try next along with 10 more valid words.
+### Example outupt
+    Most likely word: crazy
+    Other possibilities: crabs, crawl, crank, crags, crass, crabb, cragg, craps, crary, crapo,
 
