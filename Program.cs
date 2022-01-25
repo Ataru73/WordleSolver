@@ -94,6 +94,7 @@ namespace Wordle
 
         static List<string> wordList = new List<string>();
         static List<Hint> hints = new List<Hint>();
+        static Dictionary<char, double> frequencies = new Dictionary<char, double>();
         static void Main(string[] args)
         {
             List<WordCost> sortedWords = new List<WordCost>();
@@ -113,20 +114,35 @@ namespace Wordle
                 }
             }
 
-            
-            // foreach (var w in wordList)
-            // {
-            //     sortedWords.Add(new WordCost(w, Cost(w)));
-            // }
+            if (args.Length == 3 && args[2] == "sort") {
+                foreach (var c in "abcdefghijklmnopqrstuvwxyz".ToCharArray()) {
+                    double freq = 0.0;
+                    foreach (var w in wordList)
+                    {
+                        if (w.Contains(c)) {
+                            freq += 1.0;
+                        }
 
-            // sortedWords.Sort();
+                        freq /= wordList.Count;
+                    }
 
-            // wordList.Clear();
+                    frequencies.Add(c, freq);
+                }
+                
+                foreach (var w in wordList)
+                {
+                    sortedWords.Add(new WordCost(w, Cost(w)));
+                }
 
-            // foreach (var sw in sortedWords)
-            // {
-            //     wordList.Add(sw.word);
-            // }
+                sortedWords.Sort();
+
+                wordList.Clear();
+
+                foreach (var sw in sortedWords)
+                {
+                    wordList.Add(sw.word);
+                }
+            }
 
             using (var stream = File.OpenText(hintFile)) {
                 string? line = "";
@@ -162,7 +178,6 @@ namespace Wordle
                 }
             }
 
-            string word = "";
             int index = 0;
             var start = DateTime.Now.Ticks;
 
@@ -200,6 +215,16 @@ namespace Wordle
             }
 
             return valid;
+        }
+
+        private static double Cost(string word) {
+            double cost = 0.0;
+            foreach (var c in word.ToCharArray())
+            {
+                cost += frequencies[c];
+            }
+
+            return cost;
         }
 
         private static bool isPossible(string word)
