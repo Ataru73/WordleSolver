@@ -7,8 +7,10 @@ This little program helps solve wordle puzzles.
 * [sort] if present sorts the list for letter frequency.
 ## Hints file format
 This is am example hints.txt file:
+
     adieu: 0 0 1 0 0
     march: 0 1 1 1 0
+
 Every line is a hint.
 The part before the colon is the word that was given to Wordle.
 The numbers meaning is:
