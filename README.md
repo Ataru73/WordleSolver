@@ -2,12 +2,12 @@
 This little program helps solve Wordle puzzles.
 ## Syntax
     Wordle <word list> <hints> [sort]
-* 'word list' is a list of words in the language of interest. It doesn't have to consist only of 5 letter words, the program will filter them. It helps if the list is already ordered by word frequency. If not you can provide the 'sort' argument to sort it for letter frequency.
+* 'word list' is a list of words in the language of interest. It doesn't have to consist only of 5 letter words, the program will filter them. It helps if the list is already ordered by word frequency. If not you can provide the 'sort' argument to sort it for charachter frequency (words with more common charachters will come first).
 The list I'm currently using can be downloaded here: 
 https://github.com/IlyaSemenov/wikipedia-word-frequency/blob/master/results/enwiki-20190320-words-frequency.txt
 
 * 'hints' is a text file with the hints wordle gives you. The format is explained in a later section.
-* 'sort' if present sorts the list for letter frequency.
+* 'sort' if present sorts the list for charachter frequency.
 ## Hints file format
 This is am example hints.txt file:
 
