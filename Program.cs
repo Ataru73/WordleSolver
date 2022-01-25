@@ -189,6 +189,7 @@ namespace Wordle
                 if (isPossible(w)) {
                     possibleWords.Add(w);
                     index++;
+                    if (possibleWords.Count == 11) break;
                 }
             }
 
