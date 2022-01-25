@@ -197,14 +197,7 @@ namespace Wordle
 
             Console.WriteLine("Most likely word: " + possibleWords[0]);
             Console.Write("Other possibilities: ");
-            for (var i = 1; i < 11; i++) {
-                if (possibleWords.Count >= i + 1) {
-                    Console.Write(possibleWords[i] + ", ");
-                }
-                else 
-                    break;
-            }
-
+            Console.WriteLine(String.Join(", ", possibleWords.GetRange(1, 10)));
         }
 
         private static bool isValid(string line)
