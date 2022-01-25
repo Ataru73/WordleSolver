@@ -35,7 +35,7 @@ namespace Wordle
             public bool Equals(Frequency? other)
             {
                 if (other == null) return false;
-                return this.frequency == other.frequency;
+                return (this.frequency - other.frequency) < EPSILON;
             }
         }
 
@@ -60,7 +60,7 @@ namespace Wordle
             public bool Equals(WordCost? other)
             {
                 if (other == null) return false;
-                if (other.cost == this.cost) return true;
+                if ((other.cost - this.cost) < EPSILON) return true;
 
                 return false;
             }
@@ -91,6 +91,7 @@ namespace Wordle
         }
 
         private const int WORD_LENGTH = 5;
+        private const double EPSILON = 1e-10;
 
         static List<string> wordList = new List<string>();
         static List<Hint> hints = new List<Hint>();
