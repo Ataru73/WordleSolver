@@ -193,9 +193,14 @@ namespace Wordle
 
             var end = DateTime.Now.Ticks;
 
-            Console.WriteLine("Most likely word: " + possibleWords[0]);
-            Console.Write("Other possibilities: ");
-            Console.WriteLine(String.Join(", ", possibleWords.GetRange(1, Math.Min(10, possibleWords.Count - 1))));
+            if (possibleWords.Count > 0) {
+                Console.WriteLine("Most likely word: " + possibleWords[0]);
+                Console.Write("Other possibilities: ");
+                Console.WriteLine(String.Join(", ", possibleWords.GetRange(1, Math.Min(10, possibleWords.Count - 1))));
+            }
+            else {
+                Console.WriteLine("Word not found.");
+            }
         }
 
         private static bool isValid(string line)
